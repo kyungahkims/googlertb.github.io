@@ -7,13 +7,13 @@
 	<title>구글RTB 배너</title>
 </head>
 <style>
+	/* font */
+	@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
 	:root {
 		--width: 320px;
 		--height: 100px;
 	}
-
-	/* font */
-	@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
 	/* Normalize */
 	* {
@@ -76,18 +76,16 @@
 
 	.pnm_wrap {
 		display: flex;
-		align-items: center;
-		font-size: 12px;
+		font-size: 13px;
 		font-weight: 500;
-		line-height: 1.2;
-		letter-spacing: -0.54px;
+		letter-spacing: -0.24px;
 		color: #d8d4cd;
 	}
 
 	.badge {
 		display: flex;
 		align-items: center;
-		font-size: 10px;
+		font-size: 11px;
 	}
 
 	.dot {
@@ -97,6 +95,7 @@
 		background-color: #ff3b30;
 		animation: blink 1.2s infinite;
 		margin-right: 4px;
+		margin-bottom: 1px;
 	}
 
 	@keyframes blink {
@@ -150,6 +149,7 @@
 		font-weight: 500;
 		color: #7d7871;
 		text-decoration: line-through;
+		margin-top: 2px;
 	}
 
 	.sale_rate {
