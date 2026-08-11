@@ -31,6 +31,69 @@
 			margin-bottom: 30px;
 			padding-bottom: 12px;
 			border-bottom: 1px solid #e0e0e0;
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
+
+		.tooltip-wrap {
+			position: relative;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+		}
+
+		.tooltip-icon {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			background-color: #e0e0e0;
+			color: #666;
+			font-size: 14px;
+			font-weight: bold;
+		}
+
+		.tooltip-wrap:hover .tooltip-icon {
+			background-color: #666;
+			color: #fff;
+		}
+
+		.tooltip-content {
+			display: none;
+			position: absolute;
+			left: 100%;
+			top: 50%;
+			transform: translateY(-50%);
+			margin-left: 10px;
+			background-color: #333;
+			color: #fff;
+			padding: 8px 12px;
+			border-radius: 6px;
+			font-size: 14px;
+			font-weight: 500;
+			line-height: 1.7;
+			white-space: nowrap;
+			z-index: 10;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		}
+
+		.tooltip-content::before {
+			content: '';
+			position: absolute;
+			right: 100%;
+			top: 50%;
+			transform: translateY(-50%);
+			border-width: 5px;
+			border-style: solid;
+			border-color: transparent #333 transparent transparent;
+		}
+
+		.tooltip-wrap:hover .tooltip-content {
+			display: block;
 		}
 
 		.banner-grid {
@@ -74,7 +137,13 @@
 
 <body>
 	<div class="section">
-		<h2 class="section-title">Google RTB 상품형 배너 (할인)</h2>
+		<h2 class="section-title">
+			Google RTB 상품형 배너 (할인)
+			<div class="tooltip-wrap">
+				<span class="tooltip-icon">?</span>
+				<div class="tooltip-content">- 할인 상품: .price_box 요소에 .sale 클래스 추가<br>- 모든 배너의 사이즈 변경은 CSS 최상단 :root 변수의 값을 수정하여 제어</div>
+			</div>
+		</h2>
 		<div class="banner-grid">
 			<div class="banner-container">
 				<div class="banner-title">336 x 280</div>
@@ -99,7 +168,13 @@
 	</div>
 
 	<div class="section">
-		<h2 class="section-title">Google RTB 상품형 배너 (할인 X)</h2>
+		<h2 class="section-title">
+			Google RTB 상품형 배너 (할인 X)
+			<div class="tooltip-wrap">
+				<span class="tooltip-icon">?</span>
+				<div class="tooltip-content">- 일반 상품 (할인 없음): .sale 클래스 제외<br>- 모든 배너의 사이즈 변경은 CSS 최상단 :root 변수의 값을 수정하여 제어</div>
+			</div>
+		</h2>
 		<div class="banner-grid">
 			<div class="banner-container">
 				<div class="banner-title">336 x 280</div>
@@ -124,7 +199,13 @@
 	</div>
 
 	<div class="section">
-		<h2 class="section-title">Google RTB 비상품형 배너</h2>
+		<h2 class="section-title">
+			Google RTB 비상품형 배너
+			<div class="tooltip-wrap">
+				<span class="tooltip-icon">?</span>
+				<div class="tooltip-content">- 비상품형 배너는 모두 동일한 소스코드를 사용 *단 CSS :root 사이즈(--width, --height)만 다름<br>- 모든 배너의 사이즈 변경은 CSS 최상단 :root 변수의 값을 수정하여 제어</div>
+			</div>
+		</h2>
 		<div class="banner-grid">
 			<div class="banner-container">
 				<div class="banner-title">336 x 280</div>
