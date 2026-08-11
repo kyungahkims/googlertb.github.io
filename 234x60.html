@@ -4,9 +4,14 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>구글RTB 배너</title>
 </head>
 <style>
+	:root {
+		--width: 234px;
+		--height: 60px;
+	}
+
 	/* font */
 	@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
@@ -18,8 +23,8 @@
 	}
 
 	.mobon_reset {
-		width: 234px;
-		height: 60px;
+		width: var(--width);
+		height: var(--height);
 		font-family: "pretendard";
 		overflow: hidden;
 		cursor: pointer;
@@ -34,7 +39,7 @@
 
 	.img {
 		flex-shrink: 0;
-		width: 60px;
+		width: var(--height);
 		height: 100%;
 		object-fit: cover;
 	}
@@ -60,6 +65,7 @@
 		display: flex;
 		font-size: 11px;
 		font-weight: 500;
+		line-height: 1.3;
 		letter-spacing: -0.24px;
 		color: #d8d4cd;
 	}
@@ -70,13 +76,13 @@
 	}
 
 	.dot {
-		width: 6px;
-		height: 6px;
+		width: 4px;
+		height: 4px;
 		border-radius: 50%;
 		background-color: #ff3b30;
 		animation: blink 1.2s infinite;
-		margin-top: 3px;
-		margin-right: 4px;
+		margin-right: 3px;
+		margin-top: 4px;
 	}
 
 	@keyframes blink {
@@ -106,9 +112,16 @@
 		column-gap: 5px;
 	}
 
-	.price_box.sale .sale_rate,
-	.price_box.sale .original_price {
+	.sale .sale_rate,
+	.sale .sale_price {
 		display: block;
+	}
+
+	.sale .original_price {
+		font-size: 10px;
+		font-weight: 500;
+		color: #7d7871;
+		text-decoration: line-through;
 	}
 
 	.sale_rate {
@@ -123,7 +136,8 @@
 		font-size: 10px;
 	}
 
-	.final_price {
+	.sale_price {
+		display: none;
 		font-size: 14px;
 		letter-spacing: -0.6px;
 		font-weight: bold;
@@ -131,11 +145,11 @@
 	}
 
 	.original_price {
-		display: none;
-		font-size: 10px;
-		font-weight: 500;
-		color: #7d7871;
-		text-decoration: line-through;
+		font-size: 14px;
+		letter-spacing: -0.6px;
+		font-weight: bold;
+		color: #ffffff;
+		text-decoration: none;
 	}
 </style>
 
@@ -143,17 +157,18 @@
 	<div class="mobon_reset">
 		<div class="mobon_banner">
 			<div id="mobonLogo" onclick="window.open('{{HTTP}}/ad/linfo.php')"></div>
-			<img class="img" src="https://www.dabagirl.co.kr/web/product/big/202105/04ff60dbb9fa51e3c47fc8e4bdc27c08.jpg" alt="배너이미지">
+			<img class="img" src="https://www.dabagirl.co.kr/web/product/big/202105/04ff60dbb9fa51e3c47fc8e4bdc27c08.jpg"
+				alt="배너이미지">
 			<div class="bg">
 				<div class="text_wrap">
 					<div class="pnm_wrap">
 						<span class="badge"><span class="dot"></span>오늘 마감 &middot;&nbsp;</span>
 						<p class="pnm">쿨링 썸머 카라넥 원피스</p>
 					</div>
-					<!-- 할인가 있으면 .sale 추가 -->
+					<!-- 할인가 있으면 .price_box에 .sale 추가 -->
 					<div class="price_box sale">
 						<div class="sale_rate">32<span>%</span></div>
-						<div class="final_price">39,900원</div>
+						<div class="sale_price">39,900원</div>
 						<div class="original_price">49,900원</div>
 					</div>
 				</div>

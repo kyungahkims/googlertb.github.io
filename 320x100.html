@@ -4,9 +4,14 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>구글RTB 배너</title>
 </head>
 <style>
+	:root {
+		--width: 320px;
+		--height: 100px;
+	}
+
 	/* font */
 	@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
@@ -18,8 +23,8 @@
 	}
 
 	.mobon_reset {
-		width: 320px;
-		height: 100px;
+		width: var(--width);
+		height: var(--height);
 		font-family: "pretendard";
 		overflow: hidden;
 		cursor: pointer;
@@ -34,7 +39,7 @@
 
 	.img {
 		flex-shrink: 0;
-		width: 100px;
+		width: var(--height);
 		height: 100%;
 		object-fit: cover;
 	}
@@ -49,22 +54,9 @@
 		padding: 0 12px 0 10px;
 	}
 
-	.flex {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		margin-top: 5px;
-	}
-
-	.text_wrap {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		min-width: 0;
-	}
-
 	.pnm_wrap {
 		display: flex;
+		align-items: center;
 		font-size: 12px;
 		font-weight: 500;
 		letter-spacing: -0.24px;
@@ -73,6 +65,7 @@
 
 	.badge {
 		display: flex;
+		align-items: center;
 		font-size: 10px;
 	}
 
@@ -82,7 +75,6 @@
 		border-radius: 50%;
 		background-color: #ff3b30;
 		animation: blink 1.2s infinite;
-		margin-top: 3px;
 		margin-right: 4px;
 	}
 
@@ -106,6 +98,20 @@
 		overflow: hidden;
 	}
 
+	.flex {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 4px;
+	}
+
+	.text_wrap {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-width: 0;
+	}
+
 	.price_box {
 		display: flex;
 		align-items: baseline;
@@ -113,9 +119,16 @@
 		column-gap: 5px;
 	}
 
-	.price_box.sale .sale_rate,
-	.price_box.sale .original_price {
+	.sale .sale_rate,
+	.sale .sale_price {
 		display: block;
+	}
+
+	.sale .original_price {
+		font-size: 12px;
+		font-weight: 500;
+		color: #7d7871;
+		text-decoration: line-through;
 	}
 
 	.sale_rate {
@@ -130,7 +143,8 @@
 		font-size: 12px;
 	}
 
-	.final_price {
+	.sale_price {
+		display: none;
 		font-size: 18px;
 		letter-spacing: -0.6px;
 		font-weight: bold;
@@ -138,13 +152,11 @@
 	}
 
 	.original_price {
-		display: none;
-		width: 100%;
-		font-size: 11px;
-		font-weight: 500;
-		color: #7d7871;
-		text-decoration: line-through;
-		margin-top: 3px;
+		font-size: 18px;
+		letter-spacing: -0.6px;
+		font-weight: bold;
+		color: #ffffff;
+		text-decoration: none;
 	}
 
 	.shop_btn {
@@ -158,6 +170,7 @@
 		border: 1px solid #e8c66a;
 		background-color: transparent;
 		padding: 0 5px;
+		margin-top: 3px;
 		overflow: hidden;
 	}
 
@@ -192,7 +205,8 @@
 	<div class="mobon_reset">
 		<div class="mobon_banner">
 			<div id="mobonLogo" onclick="window.open('{{HTTP}}/ad/linfo.php')"></div>
-			<img class="img" src="https://www.dabagirl.co.kr/web/product/big/202105/04ff60dbb9fa51e3c47fc8e4bdc27c08.jpg" alt="배너이미지">
+			<img class="img" src="https://www.dabagirl.co.kr/web/product/big/202105/04ff60dbb9fa51e3c47fc8e4bdc27c08.jpg"
+				alt="배너이미지">
 			<div class="bg">
 				<div class="pnm_wrap">
 					<span class="badge"><span class="dot"></span>오늘 마감 &middot;&nbsp;</span>
@@ -200,10 +214,10 @@
 				</div>
 				<div class="flex">
 					<div class="text_wrap">
-						<!-- 할인가 있으면 .sale 추가 -->
+						<!-- 할인가 있으면 .price_box에 .sale 추가 -->
 						<div class="price_box sale">
 							<div class="sale_rate">32<span>%</span></div>
-							<div class="final_price">39,900원</div>
+							<div class="sale_price">39,900원</div>
 							<div class="original_price">49,900원</div>
 						</div>
 					</div>

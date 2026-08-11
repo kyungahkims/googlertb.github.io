@@ -8,8 +8,8 @@
 </head>
 <style>
 	:root {
-		--width: 300px;
-		--height: 50px;
+		--width: 234px;
+		--height: 60px;
 	}
 
 	/* font */
@@ -48,8 +48,7 @@
 		flex: 1;
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
-		gap: 5px;
+		justify-content: flex-start;
 		min-width: 0;
 		background-color: #121214;
 		padding: 0 10px;
@@ -64,18 +63,16 @@
 
 	.pnm_wrap {
 		display: flex;
-		align-items: center;
 		font-size: 11px;
 		font-weight: 500;
-		line-height: 1.28;
+		line-height: 1.3;
 		letter-spacing: -0.24px;
 		color: #d8d4cd;
 	}
 
 	.badge {
 		display: flex;
-		align-items: center;
-		font-size: 9px;
+		font-size: 10px;
 	}
 
 	.dot {
@@ -85,6 +82,7 @@
 		background-color: #ff3b30;
 		animation: blink 1.2s infinite;
 		margin-right: 3px;
+		margin-top: 4px;
 	}
 
 	@keyframes blink {
@@ -102,6 +100,7 @@
 	.pnm {
 		flex: 1;
 		min-width: 0;
+		margin-bottom: 2px;
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		overflow: hidden;
@@ -111,7 +110,6 @@
 		display: flex;
 		align-items: baseline;
 		column-gap: 5px;
-		margin-top: 1px;
 	}
 
 	.sale .sale_rate,
@@ -153,46 +151,6 @@
 		color: #ffffff;
 		text-decoration: none;
 	}
-
-	.shop_btn {
-		position: relative;
-		flex-shrink: 0;
-		height: 20px;
-		font-family: inherit;
-		font-size: 10px;
-		font-weight: 500;
-		color: #f0e2b8;
-		border: 1px solid #e8c66a;
-		background-color: transparent;
-		padding: 0 6px;
-		overflow: hidden;
-	}
-
-	.shop_btn::after {
-		content: "";
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: -40px;
-		width: 20px;
-		pointer-events: none;
-		background: linear-gradient(100deg,
-				rgba(255, 255, 255, 0) 0%,
-				rgba(255, 255, 255, 0.28) 50%,
-				rgba(255, 255, 255, 0) 100%);
-		animation: shine 2.8s ease-in-out infinite;
-	}
-
-	@keyframes shine {
-		0% {
-			left: -40px;
-		}
-
-		55%,
-		100% {
-			left: 100%;
-		}
-	}
 </style>
 
 <body>
@@ -208,13 +166,12 @@
 						<p class="pnm">쿨링 썸머 카라넥 원피스</p>
 					</div>
 					<!-- 할인가 있으면 .price_box에 .sale 추가 -->
-					<div class="price_box sale">
+					<div class="price_box">
 						<div class="sale_rate">32<span>%</span></div>
 						<div class="sale_price">39,900원</div>
 						<div class="original_price">49,900원</div>
 					</div>
 				</div>
-				<button type="button" class="shop_btn">최저가 구매</button>
 			</div>
 		</div>
 	</div>
