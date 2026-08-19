@@ -7,15 +7,16 @@
 	<title>구글RTB 배너</title>
 </head>
 <style>
-	/* font */
+	/* 1. 웹 폰트 */
 	@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
+	/* 2. 배너 & 이미지 규격 */
 	:root {
 		--width: 320px;
 		--height: 100px;
 	}
 
-	/* Normalize */
+	/* 3. 공통사항 */
 	* {
 		margin: 0;
 		padding: 0;
@@ -23,18 +24,11 @@
 	}
 
 	.mobon_reset {
+		position: relative;
 		width: var(--width);
 		height: var(--height);
 		font-family: "pretendard";
 		overflow: hidden;
-		cursor: pointer;
-	}
-
-	.mobon_banner {
-		position: relative;
-		width: 100%;
-		height: 100%;
-		display: flex;
 	}
 
 	#mobonLogo {
@@ -46,15 +40,23 @@
 		background: url('https://img.mobon.net/newAd/img/logoImg/mobonLogo02.png') center center;
 		background-size: 11px 11px;
 		opacity: 0.8;
-		z-index: 99999;
+		z-index: 1001;
 		cursor: pointer;
 	}
 
 	#mobonLogo:hover {
-		background: url('https://img.mobon.net/newAd/img/logoImg/mobonLogo_over02.png') center center;
-		background-size: 73px 15px;
 		width: 73px;
 		height: 15px;
+		background: url('https://img.mobon.net/newAd/img/logoImg/mobonLogo_over02.png') center center;
+		background-size: 73px 15px;
+	}
+
+	/* 4. 해당 사이즈 배너 */
+	.mobon_banner {
+		display: flex;
+		width: 100%;
+		height: 100%;
+		cursor: pointer;
 	}
 
 	.img {
@@ -161,7 +163,7 @@
 	}
 
 	.sale_rate span {
-		font-size: 12px;
+		font-size: 11px;
 	}
 
 	.sale_price {
@@ -193,6 +195,7 @@
 		padding: 0 5px;
 		margin-top: 3px;
 		overflow: hidden;
+		cursor: pointer;
 	}
 
 	.shop_btn::after {
@@ -224,8 +227,8 @@
 
 <body>
 	<div class="mobon_reset">
+		<div id="mobonLogo" onclick="window.open('{{HTTP}}/ad/linfo.php')"></div>
 		<div class="mobon_banner">
-			<div id="mobonLogo" onclick="window.open('{{HTTP}}/ad/linfo.php')"></div>
 			<img class="img" src="https://www.dabagirl.co.kr/web/product/big/202105/04ff60dbb9fa51e3c47fc8e4bdc27c08.jpg"
 				alt="배너이미지">
 			<div class="bg">

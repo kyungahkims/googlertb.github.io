@@ -7,34 +7,20 @@
 	<title>구글RTB 배너</title>
 </head>
 <style>
-	/* font */
+	/* 1. 웹 폰트 */
 	@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
+	/* 2. 배너 & 이미지 규격 */
 	:root {
 		--width: 300px;
 		--height: 50px;
 	}
 
-	/* Normalize */
+	/* 3. 공통사항 */
 	* {
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
-	}
-
-	.mobon_reset {
-		width: var(--width);
-		height: var(--height);
-		font-family: "pretendard";
-		overflow: hidden;
-		cursor: pointer;
-	}
-
-	.mobon_banner {
-		position: relative;
-		width: 100%;
-		height: 100%;
-		display: flex;
 	}
 
 	#mobonLogo {
@@ -46,15 +32,31 @@
 		background: url('https://img.mobon.net/newAd/img/logoImg/mobonLogo02.png') center center;
 		background-size: 11px 11px;
 		opacity: 0.8;
-		z-index: 99999;
+		z-index: 1001;
 		cursor: pointer;
 	}
 
 	#mobonLogo:hover {
-		background: url('https://img.mobon.net/newAd/img/logoImg/mobonLogo_over02.png') center center;
-		background-size: 73px 15px;
 		width: 73px;
 		height: 15px;
+		background: url('https://img.mobon.net/newAd/img/logoImg/mobonLogo_over02.png') center center;
+		background-size: 73px 15px;
+	}
+
+	/* 4. 해당 사이즈 배너 */
+	.mobon_reset {
+		position: relative;
+		width: var(--width);
+		height: var(--height);
+		font-family: "pretendard";
+		overflow: hidden;
+	}
+
+	.mobon_banner {
+		display: flex;
+		width: 100%;
+		height: 100%;
+		cursor: pointer;
 	}
 
 	.img {
@@ -79,48 +81,15 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		row-gap: 1px;
 		min-width: 0;
 	}
 
-	.pnm_wrap {
-		display: flex;
+	.pnm {
 		font-size: 11px;
 		font-weight: 500;
 		letter-spacing: -0.24px;
 		color: #d8d4cd;
-	}
-
-	.badge {
-		display: flex;
-		align-items: center;
-		font-size: 10px;
-		margin-bottom: 1px;
-	}
-
-	.dot {
-		width: 4px;
-		height: 4px;
-		border-radius: 50%;
-		background-color: #ff3b30;
-		animation: blink 1.2s infinite;
-		margin-right: 3px;
-	}
-
-	@keyframes blink {
-
-		0%,
-		100% {
-			opacity: 1;
-		}
-
-		50% {
-			opacity: 0;
-		}
-	}
-
-	.pnm {
-		flex: 1;
-		min-width: 0;
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		overflow: hidden;
@@ -130,7 +99,6 @@
 		display: flex;
 		align-items: baseline;
 		column-gap: 5px;
-		margin-top: 1px;
 	}
 
 	.sale .sale_rate,
@@ -154,7 +122,7 @@
 	}
 
 	.sale_rate span {
-		font-size: 10px;
+		font-size: 9px;
 	}
 
 	.sale_price {
@@ -185,6 +153,7 @@
 		background-color: transparent;
 		padding: 0 6px;
 		overflow: hidden;
+		cursor: pointer;
 	}
 
 	.shop_btn::after {
@@ -216,16 +185,13 @@
 
 <body>
 	<div class="mobon_reset">
+		<div id="mobonLogo" onclick="window.open('{{HTTP}}/ad/linfo.php')"></div>
 		<div class="mobon_banner">
-			<div id="mobonLogo" onclick="window.open('{{HTTP}}/ad/linfo.php')"></div>
 			<img class="img" src="https://www.dabagirl.co.kr/web/product/big/202105/04ff60dbb9fa51e3c47fc8e4bdc27c08.jpg"
 				alt="배너이미지">
 			<div class="bg">
 				<div class="text_wrap">
-					<div class="pnm_wrap">
-						<!-- <span class="badge"><span class="dot"></span>오늘 마감 &middot;&nbsp;</span> -->
-						<p class="pnm">쿨링 썸머 카라넥 원피스</p>
-					</div>
+					<p class="pnm">쿨링 썸머 카라넥 원피스</p>
 					<!-- 할인 상품인 경우 .price_box에 .sale 추가 -->
 					<div class="price_box">
 						<div class="sale_rate">32<span>%</span></div>
