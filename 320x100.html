@@ -76,45 +76,11 @@
 		padding: 0 12px 0 10px;
 	}
 
-	.pnm_wrap {
-		display: flex;
+	.pnm {
 		font-size: 13px;
 		font-weight: 500;
 		letter-spacing: -0.24px;
 		color: #d8d4cd;
-	}
-
-	.badge {
-		display: flex;
-		align-items: center;
-		font-size: 11px;
-	}
-
-	.dot {
-		width: 6px;
-		height: 6px;
-		border-radius: 50%;
-		background-color: #ff3b30;
-		animation: blink 1.2s infinite;
-		margin-right: 4px;
-		margin-bottom: 1px;
-	}
-
-	@keyframes blink {
-
-		0%,
-		100% {
-			opacity: 1;
-		}
-
-		50% {
-			opacity: 0;
-		}
-	}
-
-	.pnm {
-		flex: 1;
-		min-width: 0;
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		overflow: hidden;
@@ -232,10 +198,7 @@
 			<img class="img" src="https://www.dabagirl.co.kr/web/product/big/202105/04ff60dbb9fa51e3c47fc8e4bdc27c08.jpg"
 				alt="배너이미지">
 			<div class="bg">
-				<div class="pnm_wrap">
-					<span class="badge"><span class="dot"></span>오늘 마감 &middot;&nbsp;</span>
-					<p class="pnm">쿨링 썸머 카라넥 원피스</p>
-				</div>
+				<p class="pnm">쿨링 썸머 카라넥 원피스</p>
 				<div class="flex">
 					<div class="text_wrap">
 						<!-- 할인 상품인 경우 .price_box에 .sale 추가 -->
